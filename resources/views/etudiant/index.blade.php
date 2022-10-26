@@ -50,6 +50,10 @@
         </div>
         @endforeach
     </div>
+    <div class="d-flex justify-content-center">
+        {{ $etudiants }}
+        
+    </div>
 </div>
 
 

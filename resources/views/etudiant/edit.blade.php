@@ -13,12 +13,9 @@
                 <input type="email" class=" input-group " name="email"  placeholder="Émail" aria-label="" value="{{ $etudiant->email }}" required  >
                 <input type="text" class=" input-group " name="phone"  placeholder="Numéro de téléphone" aria-label="" value="{{ $etudiant->phone }}" required  >
                 <input type="date" class=" input-group " name="dateDeNaissance"  placeholder="Date de naissance" aria-label="" value="{{ $etudiant->dateDeNaissance }}" required>
-                <select name="villeId" class=" input-group " required>
-                @foreach($villeEtudiants as $villeEtudiant)                    
-                    <option value="{{ $villeEtudiant->id }}" >{{$villeEtudiant->nom}}</option>
-                @endforeach
-                @foreach($villes as $ville)
-                    <option value="{{ $ville->id }}"> {{ $ville->nom}}</option>
+                <select name="villeId" class=" input-group " required>                
+                @foreach($villes as $ville)                    
+                    <option value="{{ $ville->id }}" @if( $ville->id == $etudiant->villeId) selected @endif > {{ $ville->nom}}</option>
                 @endforeach
                 </select>
                 <div class=" d-flex justify-content-center">

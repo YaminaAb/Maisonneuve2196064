@@ -15,7 +15,8 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        $etudiant = Etudiant::all();	
+        $etudiant = Etudiant::Select()
+        ->paginate(8);	
         return view('etudiant.index', ['etudiants' => $etudiant,]); 
     }
 
@@ -69,14 +70,8 @@ class EtudiantController extends Controller
      */
     public function edit(Etudiant $etudiant)
     {
-        $villes = Ville::all();
-          
-
-        $villeID =  $etudiant->villeId;
-        
-        $villeEtudiant = Ville::select()->where('id', '=', $villeID)-> get();
-                    
-        return view('etudiant.edit', ['villes'=> $villes, 'etudiant' => $etudiant, 'villeEtudiants' => $villeEtudiant]);
+        $villes = Ville::all();    
+        return view('etudiant.edit', ['villes'=> $villes, 'etudiant' => $etudiant]);
     }
 
     /**
