@@ -21,10 +21,10 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
             <div>
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="{{route('index')}}">
                     <img src="{{asset('svg/home-svg.svg')}}" alt="Bootstrap" width="30" height="24">
                 </a>
-                <a class="navbar-brand" href="create/post">
+                <a class="navbar-brand" href="{{route('create.post')}}">
                     <img src="{{asset('svg/add.svg')}}" alt="Bootstrap" width="30" height="24">
                 </a>
             </div>

@@ -28,19 +28,19 @@
                 <ul class="dropdown-menu">
                     <li  class="d-flex">
                         <img src="{{asset('svg/show.svg')}}"  width="24" height="24" alt="" srcset="" class="ms-2">
-                        <a class="dropdown-item " href="./-{{ $etudiant->id }}">
+                        <a class="dropdown-item " href=" {{route('etudiant.show', $etudiant->id)}}">
                             Afficher 
                         </a>
                     </li>
                     <li class="d-flex">
                         <img src="{{asset('svg/update.svg')}}"  width="30" height="24" alt="" srcset="" class="ms-2">
-                        <a class="dropdown-item "  href="./-{{ $etudiant->id }}/edit">
+                        <a class="dropdown-item "  href="{{route('etudiant.edit', $etudiant->id)}}"  >
                         Modifier
                         </a>
                     </li>
                     <li class="d-flex">
                         <img src="{{asset('svg/delete.svg')}}"  width="30" height="24"alt="" srcset="" class="ms-2">
-                        <a class="dropdown-item" href="./-{{ $etudiant->id }}/delete">
+                        <a class="dropdown-item" href="{{route('etudiant.delete', $etudiant->id)}}">
                         Supprimer
                         </a>
                     </li>

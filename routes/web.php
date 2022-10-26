@@ -21,24 +21,24 @@ use App\Models\Etudiant;
 
 // Définir les routes
 // page d'acceuil 
-Route::get('/', [EtudiantController::class, 'index']);
+Route::get('/', [EtudiantController::class, 'index'])->name('index');
 
 //Formulaire d'ajout 
-Route::get('/create/post', [EtudiantController::class, 'create']);
+Route::get('/create/post', [EtudiantController::class, 'create'])->name('create.post');
 
 //l'ajout d'un nouveau étudiant 
-Route::post('/create/post', [EtudiantController::class, 'store']);
+Route::post('/create/post', [EtudiantController::class, 'store'])->name('create.post');
 
 //Afficher les détaile d'un étudiant dans une autre page 
-Route::get('/-{etudiant}', [EtudiantController::class , 'show']);
+Route::get('/-{etudiant}', [EtudiantController::class , 'show'])->name('etudiant.show');
 
 //Formulaire de modification
-Route::get('/-{etudiant}/edit', [EtudiantController::class , 'edit'] );
+Route::get('/-{etudiant}/edit', [EtudiantController::class , 'edit'])->name('etudiant.edit');
 
 //Modification 
-Route::put('/-{etudiant}/edit', [EtudiantController::class , 'update'] );
+Route::put('/-{etudiant}/edit', [EtudiantController::class , 'update'])->name('etudiant.edit');
 
 //suppression
-Route::get('/-{etudiant}/delete', [EtudiantController::class, 'destroy']);
+Route::get('/-{etudiant}/delete', [EtudiantController::class, 'destroy'])->name('etudiant.delete');
 
 
