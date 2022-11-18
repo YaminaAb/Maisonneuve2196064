@@ -18,7 +18,7 @@ class CreateVillesTable extends Migration
             $table->timestamps();
 
             //Ajouter les champs à la table villes
-            //Nom d ela ville
+            //Nom de la ville
             $table->string('nom',100);
            
         });

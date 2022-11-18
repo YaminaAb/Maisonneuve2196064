@@ -32,6 +32,7 @@
                             Afficher 
                         </a>
                     </li>
+                    @if(Auth::user()->id == $etudiant->users_id )
                     <li class="d-flex">
                         <img src="{{asset('svg/update.svg')}}"  width="30" height="24" alt="" srcset="" class="ms-2">
                         <a class="dropdown-item "  href="{{route('etudiant.edit', $etudiant->id)}}"  >
@@ -44,6 +45,7 @@
                         Supprimer
                         </a>
                     </li>
+                    @endif
                 </ul>
             </div>           
 

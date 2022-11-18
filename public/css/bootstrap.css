@@ -3850,7 +3850,8 @@ background-size:100% 5px ;/* if linear-gradient, we need to resize it */
   white-space: nowrap;
 }
 .navbar-brand:hover, .navbar-brand:focus {
-  color: var(--bs-navbar-brand-hover-color);
+  border-radius: 26%;
+  background-color: #139c49;;
 }
 
 .navbar-nav {

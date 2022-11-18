@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Etudiant;
 use App\Models\Ville;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EtudiantController extends Controller
 {
@@ -16,6 +17,7 @@ class EtudiantController extends Controller
     public function index()
     {
         $etudiant = Etudiant::Select()
+        ->orderby('id', 'DESC')
         ->paginate(8);	
         return view('etudiant.index', ['etudiants' => $etudiant,]); 
     }
@@ -27,8 +29,7 @@ class EtudiantController extends Controller
      */
     public function create()
     {
-        $ville = Ville::all();
-        return view('etudiant.create', ['villes'=> $ville]); 
+        
     }
 
     /**
@@ -39,16 +40,7 @@ class EtudiantController extends Controller
      */
     public function store(Request $request)
     {
-        Etudiant::create([
-            'nom'=> $request->nom,
-            'adresse'=> $request->adresse,
-            'email'=> $request->email,
-            'phone'=> $request->phone,
-            'dateDeNaissance' => $request->dateDeNaissance,
-            'villeId'=> $request->villeId            
-        ]);
-
-        return redirect('/');
+       
     }
 
     /**
@@ -70,8 +62,15 @@ class EtudiantController extends Controller
      */
     public function edit(Etudiant $etudiant)
     {
-        $villes = Ville::all();    
-        return view('etudiant.edit', ['villes'=> $villes, 'etudiant' => $etudiant]);
+        $villes = Ville::all(); 
+    
+        if($etudiant->users_id == Auth::user()->id){
+
+            return view('etudiant.edit', ['villes'=> $villes, 'etudiant' => $etudiant]);
+        }else{
+            
+            return redirect('/etudiant');
+        }
     }
 
     /**
